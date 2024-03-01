@@ -81,8 +81,7 @@ void main(void)
         if(mainFlags.SystemArmed) Arm_System();
         
         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0)) 
-           || (mainFlags.SystemDisarmed_ContinuousSleep) 
-           || (PIR3bits.RC1IF == 0) || (PIR3bits.TX1IF == 0)) 
+           || (mainFlags.SystemDisarmed_ContinuousSleep)) 
             //interrupt not going, timer not counting, system disarmed, bluetooth not receiving, bluetooth not sending
         {
             

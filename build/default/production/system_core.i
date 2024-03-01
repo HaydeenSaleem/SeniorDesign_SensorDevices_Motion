@@ -141,6 +141,8 @@ typedef struct ProjectFlags
     uint8_t SystemArmed :1;
     uint8_t SystemDisarmed :1;
     uint8_t SystemDisarmed_ContinuousSleep :1;
+    uint8_t System_MotionFlag :1;
+    uint8_t System_BluetoothReceive :1;
 } ProjectFlags;
 # 8 "./system_core.h" 2
 
@@ -15529,7 +15531,10 @@ void TMR0_DefaultInterruptHandler(void);
 void Arm_System(void)
 {
     do { TRISCbits.TRISC2 = 1; } while(0);
-    PIE0bits.IOCIE = 1;
+
+    IOCCPbits.IOCCP2 = 1;
+
+
     PIE0bits.TMR0IE = 1;
 
     mainFlags.SystemArmed = 0;
@@ -15540,7 +15545,10 @@ void Arm_System(void)
 void Disarm_System(void)
 {
 
-    PIE0bits.IOCIE = 0;
+
+    IOCCPbits.IOCCP2 = 0;
+
+
     PIE0bits.TMR0IE = 0;
     TMR0_StopTimer();
 
