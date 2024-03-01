@@ -15715,6 +15715,8 @@ typedef struct ProjectFlags
     uint8_t SystemArmed :1;
     uint8_t SystemDisarmed :1;
     uint8_t SystemDisarmed_ContinuousSleep :1;
+    uint8_t System_MotionFlag :1;
+    uint8_t System_BluetoothReceive :1;
 } ProjectFlags;
 # 45 "main.c" 2
 
@@ -15780,6 +15782,7 @@ void main(void)
 
         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0))
            || (mainFlags.SystemDisarmed_ContinuousSleep))
+
         {
 
             __asm(" sleep");

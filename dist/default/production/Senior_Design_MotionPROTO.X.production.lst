@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Fri Mar 01 00:05:14 2024
+                                                                                               Fri Mar 01 16:03:58 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18LF25K40
@@ -1394,7 +1394,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1368                           
   1369 ;; *************** function _Disarm_System *****************
   1370 ;; Defined at:
-  1371 ;;		line 21 in file "system_core.c"
+  1371 ;;		line 18 in file "system_core.c"
   1372 ;; Parameters:    Size  Location     Type
   1373 ;;		None
   1374 ;; Auto vars:     Size  Location     Type
@@ -1428,22 +1428,22 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1402   000BE4                     _Disarm_System:
   1403                           	callstack 24
   1404   000BE4                     
-  1405                           ;system_core.c: 25:     IOCCPbits.IOCCP2 = 0;
+  1405                           ;system_core.c: 20:     IOCCPbits.IOCCP2 = 0;
   1406   000BE4  010F               	movlb	15	; () banked
   1407   000BE6  951C               	bcf	28,2,b	;volatile
   1408                           
-  1409                           ;system_core.c: 28:     PIE0bits.TMR0IE = 0;
+  1409                           ;system_core.c: 22:     PIE0bits.TMR0IE = 0;
   1410   000BE8  010E               	movlb	14	; () banked
   1411   000BEA  9BC2               	bcf	194,5,b	;volatile
   1412   000BEC                     
   1413                           ; BSR set to: 14
-  1414                           ;system_core.c: 29:     TMR0_StopTimer();
+  1414                           ;system_core.c: 23:     TMR0_StopTimer();
   1415   000BEC  EC3E  F006         	call	_TMR0_StopTimer	;wreg free
   1416   000BF0                     
-  1417                           ;system_core.c: 32:     mainFlags.SystemDisarmed_ContinuousSleep = 1;
+  1417                           ;system_core.c: 25:     mainFlags.SystemDisarmed_ContinuousSleep = 1;
   1418   000BF0  8420               	bsf	_mainFlags^0,2,c
   1419   000BF2                     
-  1420                           ;system_core.c: 33:     mainFlags.SystemDisarmed = 0;
+  1420                           ;system_core.c: 26:     mainFlags.SystemDisarmed = 0;
   1421   000BF2  9220               	bcf	_mainFlags^0,1,c
   1422   000BF4  0012               	return		;funcret
   1423   000BF6                     __end_of_Disarm_System:
@@ -1528,18 +1528,18 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1502                           	callstack 25
   1503   000BF6  848A               	bsf	138,2,c	;volatile
   1504   000BF8                     
-  1505                           ;system_core.c: 11:     IOCCPbits.IOCCP2 = 1;
+  1505                           ;system_core.c: 10:     IOCCPbits.IOCCP2 = 1;
   1506   000BF8  010F               	movlb	15	; () banked
   1507   000BFA  851C               	bsf	28,2,b	;volatile
   1508                           
-  1509                           ;system_core.c: 14:     PIE0bits.TMR0IE = 1;
+  1509                           ;system_core.c: 11:     PIE0bits.TMR0IE = 1;
   1510   000BFC  010E               	movlb	14	; () banked
   1511   000BFE  8BC2               	bsf	194,5,b	;volatile
   1512                           
-  1513                           ;system_core.c: 16:     mainFlags.SystemArmed = 0;
+  1513                           ;system_core.c: 13:     mainFlags.SystemArmed = 0;
   1514   000C00  9020               	bcf	_mainFlags^0,0,c
   1515                           
-  1516                           ;system_core.c: 17:     mainFlags.SystemDisarmed_ContinuousSleep = 0;
+  1516                           ;system_core.c: 14:     mainFlags.SystemDisarmed_ContinuousSleep = 0;
   1517   000C02  9420               	bcf	_mainFlags^0,2,c
   1518   000C04                     
   1519                           ; BSR set to: 14
@@ -3327,7 +3327,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Fri Mar 01 00:05:14 2024
+Symbol Table                                                                                   Fri Mar 01 16:03:58 2024
 
                 ?_EUSART_SetRxInterruptHandler 0036                                             l40 0BE2  
                                            l43 0B96                                             l37 0BCA  

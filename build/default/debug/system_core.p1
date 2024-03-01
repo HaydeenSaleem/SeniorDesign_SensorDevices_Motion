@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "15 ./project_flags.h
 [; ;./project_flags.h: 15: {
-[s S1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1 ProjectFlags SystemArmed SystemDisarmed SystemDisarmed_ContinuousSleep ]
+[s S1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1 ProjectFlags SystemArmed SystemDisarmed SystemDisarmed_ContinuousSleep System_MotionFlag System_BluetoothReceive ]
 "14842 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 14842:     struct {
 [s S711 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -14,6 +14,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14853
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 14853: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF8A)));
 [v _TRISCbits `VS710 ~T0 @X0 0 e@3978 ]
+"7450
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 7450:     struct {
+[s S383 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S383 . IOCCP0 IOCCP1 IOCCP2 IOCCP3 IOCCP4 IOCCP5 IOCCP6 IOCCP7 ]
+"7449
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 7449: typedef union {
+[u S382 `S383 1 ]
+[n S382 . . ]
+"7461
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 7461: extern volatile IOCCPbits_t IOCCPbits __attribute__((address(0xF1C)));
+[v _IOCCPbits `VS382 ~T0 @X0 0 e@3868 ]
 "3163
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 3163:     struct {
 [s S193 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1261,46 +1272,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _TRISCbits 0 2 -> -> 1 `i `uc ]
 }
 [e :U 1326 ]
-"10
-[; ;system_core.c: 10:     PIE0bits.IOCIE = 1;
-[e = . . _PIE0bits 0 4 -> -> 1 `i `uc ]
 "11
-[; ;system_core.c: 11:     PIE0bits.TMR0IE = 1;
-[e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
-"13
-[; ;system_core.c: 13:     mainFlags.SystemArmed = 0;
-[e = . _mainFlags 0 -> -> 0 `i `uc ]
+[; ;system_core.c: 11:     IOCCPbits.IOCCP2 = 1;
+[e = . . _IOCCPbits 0 2 -> -> 1 `i `uc ]
 "14
-[; ;system_core.c: 14:     mainFlags.SystemDisarmed_ContinuousSleep = 0;
+[; ;system_core.c: 14:     PIE0bits.TMR0IE = 1;
+[e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
+"16
+[; ;system_core.c: 16:     mainFlags.SystemArmed = 0;
+[e = . _mainFlags 0 -> -> 0 `i `uc ]
+"17
+[; ;system_core.c: 17:     mainFlags.SystemDisarmed_ContinuousSleep = 0;
 [e = . _mainFlags 2 -> -> 0 `i `uc ]
-"15
-[; ;system_core.c: 15: }
+"18
+[; ;system_core.c: 18: }
 [e :UE 1324 ]
 }
-"18
-[; ;system_core.c: 18: void Disarm_System(void)
+"21
+[; ;system_core.c: 21: void Disarm_System(void)
 [v _Disarm_System `(v ~T0 @X0 1 ef ]
-"19
-[; ;system_core.c: 19: {
+"22
+[; ;system_core.c: 22: {
 {
 [e :U _Disarm_System ]
 [f ]
-"21
-[; ;system_core.c: 21:     PIE0bits.IOCIE = 0;
-[e = . . _PIE0bits 0 4 -> -> 0 `i `uc ]
-"22
-[; ;system_core.c: 22:     PIE0bits.TMR0IE = 0;
-[e = . . _PIE0bits 0 5 -> -> 0 `i `uc ]
-"23
-[; ;system_core.c: 23:     TMR0_StopTimer();
-[e ( _TMR0_StopTimer ..  ]
-"26
-[; ;system_core.c: 26:     mainFlags.SystemDisarmed_ContinuousSleep = 1;
-[e = . _mainFlags 2 -> -> 1 `i `uc ]
-"27
-[; ;system_core.c: 27:     mainFlags.SystemDisarmed = 0;
-[e = . _mainFlags 1 -> -> 0 `i `uc ]
+"25
+[; ;system_core.c: 25:     IOCCPbits.IOCCP2 = 0;
+[e = . . _IOCCPbits 0 2 -> -> 0 `i `uc ]
 "28
-[; ;system_core.c: 28: }
+[; ;system_core.c: 28:     PIE0bits.TMR0IE = 0;
+[e = . . _PIE0bits 0 5 -> -> 0 `i `uc ]
+"29
+[; ;system_core.c: 29:     TMR0_StopTimer();
+[e ( _TMR0_StopTimer ..  ]
+"32
+[; ;system_core.c: 32:     mainFlags.SystemDisarmed_ContinuousSleep = 1;
+[e = . _mainFlags 2 -> -> 1 `i `uc ]
+"33
+[; ;system_core.c: 33:     mainFlags.SystemDisarmed = 0;
+[e = . _mainFlags 1 -> -> 0 `i `uc ]
+"34
+[; ;system_core.c: 34: }
 [e :UE 1328 ]
 }

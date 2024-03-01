@@ -1272,46 +1272,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _TRISCbits 0 2 -> -> 1 `i `uc ]
 }
 [e :U 1326 ]
-"11
-[; ;system_core.c: 11:     IOCCPbits.IOCCP2 = 1;
+"10
+[; ;system_core.c: 10:     IOCCPbits.IOCCP2 = 1;
 [e = . . _IOCCPbits 0 2 -> -> 1 `i `uc ]
-"14
-[; ;system_core.c: 14:     PIE0bits.TMR0IE = 1;
+"11
+[; ;system_core.c: 11:     PIE0bits.TMR0IE = 1;
 [e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
-"16
-[; ;system_core.c: 16:     mainFlags.SystemArmed = 0;
+"13
+[; ;system_core.c: 13:     mainFlags.SystemArmed = 0;
 [e = . _mainFlags 0 -> -> 0 `i `uc ]
-"17
-[; ;system_core.c: 17:     mainFlags.SystemDisarmed_ContinuousSleep = 0;
+"14
+[; ;system_core.c: 14:     mainFlags.SystemDisarmed_ContinuousSleep = 0;
 [e = . _mainFlags 2 -> -> 0 `i `uc ]
-"18
-[; ;system_core.c: 18: }
+"15
+[; ;system_core.c: 15: }
 [e :UE 1324 ]
 }
-"21
-[; ;system_core.c: 21: void Disarm_System(void)
+"18
+[; ;system_core.c: 18: void Disarm_System(void)
 [v _Disarm_System `(v ~T0 @X0 1 ef ]
-"22
-[; ;system_core.c: 22: {
+"19
+[; ;system_core.c: 19: {
 {
 [e :U _Disarm_System ]
 [f ]
-"25
-[; ;system_core.c: 25:     IOCCPbits.IOCCP2 = 0;
+"20
+[; ;system_core.c: 20:     IOCCPbits.IOCCP2 = 0;
 [e = . . _IOCCPbits 0 2 -> -> 0 `i `uc ]
-"28
-[; ;system_core.c: 28:     PIE0bits.TMR0IE = 0;
+"22
+[; ;system_core.c: 22:     PIE0bits.TMR0IE = 0;
 [e = . . _PIE0bits 0 5 -> -> 0 `i `uc ]
-"29
-[; ;system_core.c: 29:     TMR0_StopTimer();
+"23
+[; ;system_core.c: 23:     TMR0_StopTimer();
 [e ( _TMR0_StopTimer ..  ]
-"32
-[; ;system_core.c: 32:     mainFlags.SystemDisarmed_ContinuousSleep = 1;
+"25
+[; ;system_core.c: 25:     mainFlags.SystemDisarmed_ContinuousSleep = 1;
 [e = . _mainFlags 2 -> -> 1 `i `uc ]
-"33
-[; ;system_core.c: 33:     mainFlags.SystemDisarmed = 0;
+"26
+[; ;system_core.c: 26:     mainFlags.SystemDisarmed = 0;
 [e = . _mainFlags 1 -> -> 0 `i `uc ]
-"34
-[; ;system_core.c: 34: }
+"27
+[; ;system_core.c: 27: }
 [e :UE 1328 ]
 }

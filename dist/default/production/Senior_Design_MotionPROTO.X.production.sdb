@@ -96,7 +96,7 @@
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
 "7 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
 [v _Arm_System Arm_System `(v  1 e 1 0 ]
-"21
+"18
 [v _Disarm_System Disarm_System `(v  1 e 1 0 ]
 [s S614 ProjectFlags 1 `uc 1 SystemArmed 1 0 :1:0 
 `uc 1 SystemDisarmed 1 0 :1:1 
@@ -562,10 +562,10 @@
 [v EUSART_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 4 ]
 "274
 } 0
-"21 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
+"18 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
 [v _Disarm_System Disarm_System `(v  1 e 1 0 ]
 {
-"34
+"27
 } 0
 "94 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\mcc_generated_files/tmr0.c
 [v _TMR0_StopTimer TMR0_StopTimer `(v  1 e 1 0 ]
@@ -575,7 +575,7 @@
 "7 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
 [v _Arm_System Arm_System `(v  1 e 1 0 ]
 {
-"18
+"15
 } 0
 "58 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]

@@ -7,10 +7,7 @@
 void Arm_System(void)
 {
     SensorPin_SetDigitalInput(); //sets sensor pin to input
-    //PIE0bits.IOCIE = HIGH; //enables interrupt on change for sensor
-    IOCCPbits.IOCCP2 = 1;
-    
-    
+    IOCCPbits.IOCCP2 = 1; //enables interrupt on change for sensor, positive edge only
     PIE0bits.TMR0IE = HIGH; //enables timer interrupt
 
     mainFlags.SystemArmed = LOW; //lowers system armed flag to avoid fnc reentry
@@ -20,14 +17,10 @@ void Arm_System(void)
 
 void Disarm_System(void)
 {
-    //SensorPin_SetDigitalOutput();
-    //PIE0bits.IOCIE = LOW; //disable interrupt when system disarmed
-    IOCCPbits.IOCCP2 = 0;
-    //IOCCNbits.IOCCN2 = 0;
+    IOCCPbits.IOCCP2 = 0; //disable interrupt when system disarmed, positive edge only
     
     PIE0bits.TMR0IE = LOW; //disable timer interrupt
     TMR0_StopTimer(); //stop timer in case it is running
-
 
     mainFlags.SystemDisarmed_ContinuousSleep = HIGH;
     mainFlags.SystemDisarmed = LOW;

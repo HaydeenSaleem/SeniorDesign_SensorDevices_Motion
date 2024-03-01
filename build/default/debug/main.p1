@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "15 ./project_flags.h
 [; ;./project_flags.h: 15: {
-[s S1327 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1327 ProjectFlags SystemArmed SystemDisarmed SystemDisarmed_ContinuousSleep ]
+[s S1327 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1327 ProjectFlags SystemArmed SystemDisarmed SystemDisarmed_ContinuousSleep System_MotionFlag System_BluetoothReceive ]
 [p mainexit ]
 "72 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 72: void SYSTEM_Initialize(void);
@@ -1325,29 +1325,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "83
 [; ;main.c: 83:         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0))
 [e $ ! || && == -> . . _IOCCFbits 0 2 `i -> 0 `i == -> . . _T0CON0bits 0 4 `i -> 0 `i != -> . _mainFlags 2 `i -> 0 `i 1334  ]
-"85
-[; ;main.c: 85:         {
+"86
+[; ;main.c: 86:         {
 {
-"87
-[; ;main.c: 87:             __asm(" sleep");
-[; <"  sleep ;# ">
 "88
-[; ;main.c: 88:             __nop();
-[e ( ___nop ..  ]
+[; ;main.c: 88:             __asm(" sleep");
+[; <"  sleep ;# ">
 "89
 [; ;main.c: 89:             __nop();
 [e ( ___nop ..  ]
 "90
-[; ;main.c: 90:         }
+[; ;main.c: 90:             __nop();
+[e ( ___nop ..  ]
+"91
+[; ;main.c: 91:         }
 }
 [e :U 1334 ]
-"92
-[; ;main.c: 92:     }
+"93
+[; ;main.c: 93:     }
 }
 [e :U 1329 ]
 [e $U 1330  ]
 [e :U 1331 ]
-"93
-[; ;main.c: 93: }
+"94
+[; ;main.c: 94: }
 [e :UE 1328 ]
 }

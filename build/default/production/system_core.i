@@ -15531,10 +15531,7 @@ void TMR0_DefaultInterruptHandler(void);
 void Arm_System(void)
 {
     do { TRISCbits.TRISC2 = 1; } while(0);
-
     IOCCPbits.IOCCP2 = 1;
-
-
     PIE0bits.TMR0IE = 1;
 
     mainFlags.SystemArmed = 0;
@@ -15544,14 +15541,10 @@ void Arm_System(void)
 
 void Disarm_System(void)
 {
-
-
     IOCCPbits.IOCCP2 = 0;
-
 
     PIE0bits.TMR0IE = 0;
     TMR0_StopTimer();
-
 
     mainFlags.SystemDisarmed_ContinuousSleep = 1;
     mainFlags.SystemDisarmed = 0;
