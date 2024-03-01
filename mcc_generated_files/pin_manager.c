@@ -48,8 +48,9 @@
 
 #include "pin_manager.h"
 #include "tmr0.h"
+#include "../project_flags.h"
 
-
+extern ProjectFlags mainFlags;
 int8_t sensorDebounce;
 
 
@@ -211,8 +212,7 @@ void IOCCF5_SetInterruptHandler(void (* InterruptHandler)(void)){
   Default interrupt handler for IOCCF5
 */
 void IOCCF5_DefaultInterruptHandler(void){
-    // add your IOCCF5 interrupt custom code
-    // or set custom function using IOCCF5_SetInterruptHandler()
+    // wakes the chip from sleep, sets receive flag
 }
 
 
@@ -226,6 +226,8 @@ void movement_Detect_Interrupt(void){
         
         PIE0bits.IOCIE = LOW; //disable sensor interrupt for duration of timer
         TMR0_StartTimer();
+        
+        mainFlags.System_MotionFlag = HIGH;
     }
     
     IOCCFbits.IOCCF2 = LOW;

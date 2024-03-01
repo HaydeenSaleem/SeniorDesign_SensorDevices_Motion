@@ -19,5 +19,6 @@ void Arm_System(void);
 void Disarm_System(void);
 
 
+void Transmit_MotionData(void);
 #endif	/* SYSTEM_CORE_H */
 

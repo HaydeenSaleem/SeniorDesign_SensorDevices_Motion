@@ -157,6 +157,9 @@ void Arm_System(void);
 
 
 void Disarm_System(void);
+
+
+void Transmit_MotionData(void);
 # 2 "system_core.c" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
@@ -15526,6 +15529,61 @@ extern void (*TMR0_InterruptHandler)(void);
 void TMR0_DefaultInterruptHandler(void);
 # 4 "system_core.c" 2
 
+# 1 "./mcc_generated_files/eusart.h" 1
+# 75 "./mcc_generated_files/eusart.h"
+typedef union {
+    struct {
+        unsigned perr : 1;
+        unsigned ferr : 1;
+        unsigned oerr : 1;
+        unsigned reserved : 5;
+    };
+    uint8_t status;
+}eusart_status_t;
+
+
+
+
+extern volatile uint8_t eusartTxBufferRemaining;
+extern volatile uint8_t eusartRxCount;
+
+
+
+
+extern void (*EUSART_TxDefaultInterruptHandler)(void);
+extern void (*EUSART_RxDefaultInterruptHandler)(void);
+# 117 "./mcc_generated_files/eusart.h"
+void EUSART_Initialize(void);
+# 165 "./mcc_generated_files/eusart.h"
+_Bool EUSART_is_tx_ready(void);
+# 213 "./mcc_generated_files/eusart.h"
+_Bool EUSART_is_rx_ready(void);
+# 260 "./mcc_generated_files/eusart.h"
+_Bool EUSART_is_tx_done(void);
+# 308 "./mcc_generated_files/eusart.h"
+eusart_status_t EUSART_get_last_status(void);
+# 328 "./mcc_generated_files/eusart.h"
+uint8_t EUSART_Read(void);
+# 348 "./mcc_generated_files/eusart.h"
+void EUSART_Write(uint8_t txData);
+# 369 "./mcc_generated_files/eusart.h"
+void EUSART_Transmit_ISR(void);
+# 390 "./mcc_generated_files/eusart.h"
+void EUSART_Receive_ISR(void);
+# 411 "./mcc_generated_files/eusart.h"
+void EUSART_RxDataHandler(void);
+# 429 "./mcc_generated_files/eusart.h"
+void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
+# 447 "./mcc_generated_files/eusart.h"
+void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
+# 465 "./mcc_generated_files/eusart.h"
+void EUSART_SetErrorHandler(void (* interruptHandler)(void));
+# 485 "./mcc_generated_files/eusart.h"
+void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
+# 505 "./mcc_generated_files/eusart.h"
+void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
+# 5 "system_core.c" 2
+
 
 
 void Arm_System(void)
@@ -15548,4 +15606,15 @@ void Disarm_System(void)
 
     mainFlags.SystemDisarmed_ContinuousSleep = 1;
     mainFlags.SystemDisarmed = 0;
+}
+
+
+void Transmit_MotionData(void)
+{
+    EUSART_Write(0x4D);
+    EUSART_Write(0x44);
+
+    mainFlags.System_MotionFlag = 0;
+
+    while(!EUSART_is_tx_done());
 }

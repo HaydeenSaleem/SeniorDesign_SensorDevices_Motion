@@ -79,6 +79,7 @@ void main(void)
     {
         if(mainFlags.SystemDisarmed) Disarm_System();
         if(mainFlags.SystemArmed) Arm_System();
+        if(mainFlags.System_MotionFlag) Transmit_MotionData();
         
         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0)) 
            || (mainFlags.SystemDisarmed_ContinuousSleep)) 

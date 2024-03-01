@@ -15473,8 +15473,20 @@ extern void (*TMR0_InterruptHandler)(void);
 void TMR0_DefaultInterruptHandler(void);
 # 50 "mcc_generated_files/pin_manager.c" 2
 
+# 1 "mcc_generated_files/../project_flags.h" 1
+# 14 "mcc_generated_files/../project_flags.h"
+typedef struct ProjectFlags
+{
+    uint8_t SystemArmed :1;
+    uint8_t SystemDisarmed :1;
+    uint8_t SystemDisarmed_ContinuousSleep :1;
+    uint8_t System_MotionFlag :1;
+    uint8_t System_BluetoothReceive :1;
+} ProjectFlags;
+# 51 "mcc_generated_files/pin_manager.c" 2
 
 
+extern ProjectFlags mainFlags;
 int8_t sensorDebounce;
 
 
@@ -15637,7 +15649,6 @@ void IOCCF5_SetInterruptHandler(void (* InterruptHandler)(void)){
 
 void IOCCF5_DefaultInterruptHandler(void){
 
-
 }
 
 
@@ -15651,6 +15662,8 @@ void movement_Detect_Interrupt(void){
 
         PIE0bits.IOCIE = 0;
         TMR0_StartTimer();
+
+        mainFlags.System_MotionFlag = 1;
     }
 
     IOCCFbits.IOCCF2 = 0;

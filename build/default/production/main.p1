@@ -35,6 +35,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16
 [; ;./system_core.h: 16: void Arm_System(void);
 [v _Arm_System `(v ~T0 @X0 0 ef ]
+"22
+[; ;./system_core.h: 22: void Transmit_MotionData(void);
+[v _Transmit_MotionData `(v ~T0 @X0 0 ef ]
 "7326 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 7326:     struct {
 [s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1322,32 +1325,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . _mainFlags 0 `i -> 0 `i 1333  ]
 [e ( _Arm_System ..  ]
 [e :U 1333 ]
-"83
-[; ;main.c: 83:         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0))
-[e $ ! || && == -> . . _IOCCFbits 0 2 `i -> 0 `i == -> . . _T0CON0bits 0 4 `i -> 0 `i != -> . _mainFlags 2 `i -> 0 `i 1334  ]
-"86
-[; ;main.c: 86:         {
+"82
+[; ;main.c: 82:         if(mainFlags.System_MotionFlag) Transmit_MotionData();
+[e $ ! != -> . _mainFlags 3 `i -> 0 `i 1334  ]
+[e ( _Transmit_MotionData ..  ]
+[e :U 1334 ]
+"84
+[; ;main.c: 84:         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0))
+[e $ ! || && == -> . . _IOCCFbits 0 2 `i -> 0 `i == -> . . _T0CON0bits 0 4 `i -> 0 `i != -> . _mainFlags 2 `i -> 0 `i 1335  ]
+"87
+[; ;main.c: 87:         {
 {
-"88
-[; ;main.c: 88:             __asm(" sleep");
-[; <"  sleep ;# ">
 "89
-[; ;main.c: 89:             __nop();
-[e ( ___nop ..  ]
+[; ;main.c: 89:             __asm(" sleep");
+[; <"  sleep ;# ">
 "90
 [; ;main.c: 90:             __nop();
 [e ( ___nop ..  ]
 "91
-[; ;main.c: 91:         }
+[; ;main.c: 91:             __nop();
+[e ( ___nop ..  ]
+"92
+[; ;main.c: 92:         }
 }
-[e :U 1334 ]
-"93
-[; ;main.c: 93:     }
+[e :U 1335 ]
+"94
+[; ;main.c: 94:     }
 }
 [e :U 1329 ]
 [e $U 1330  ]
 [e :U 1331 ]
-"94
-[; ;main.c: 94: }
+"95
+[; ;main.c: 95: }
 [e :UE 1328 ]
 }
