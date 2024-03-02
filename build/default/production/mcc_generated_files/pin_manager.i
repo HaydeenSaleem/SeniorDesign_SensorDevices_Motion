@@ -15655,7 +15655,7 @@ void IOCCF5_DefaultInterruptHandler(void){
 void movement_Detect_Interrupt(void){
     ++sensorDebounce;
 
-    if(sensorDebounce == 3)
+    if(sensorDebounce == 2)
     {
         do { LATCbits.LATC3 = 1; } while(0);
         sensorDebounce = 0;

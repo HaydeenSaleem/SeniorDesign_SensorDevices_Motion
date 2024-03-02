@@ -219,7 +219,7 @@ void IOCCF5_DefaultInterruptHandler(void){
 void movement_Detect_Interrupt(void){
     ++sensorDebounce;
     
-    if(sensorDebounce == 3) 
+    if(sensorDebounce == 2) 
     {
         BlinkPin_SetHigh();
         sensorDebounce = 0;

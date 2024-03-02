@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\hshod\AppData\Local\Temp\xcBsjgo.1\driver_tmp_3.o
+ C:\Users\hshod\AppData\Local\Temp\xcAsbks.\driver_tmp_3.o
  -Odist/default/debug\Senior_Design_MotionPROTO.X.debug.hex
  -logfile=dist/default/debug\Senior_Design_MotionPROTO.X.debug.hxl
  -addressing=1
@@ -9,10 +9,10 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 5h		(C:\Users\hshod\AppData\Local\Temp\xcBsjgo.1\driver_tmp_3.o)
-  8h - FDh		(C:\Users\hshod\AppData\Local\Temp\xcBsjgo.1\driver_tmp_3.o)
-  800h - D2Bh		(C:\Users\hshod\AppData\Local\Temp\xcBsjgo.1\driver_tmp_3.o)
-  300000h - 30000Bh		(C:\Users\hshod\AppData\Local\Temp\xcBsjgo.1\driver_tmp_3.o)
+  0h - 5h		(C:\Users\hshod\AppData\Local\Temp\xcAsbks.\driver_tmp_3.o)
+  8h - FDh		(C:\Users\hshod\AppData\Local\Temp\xcAsbks.\driver_tmp_3.o)
+  800h - D2Bh		(C:\Users\hshod\AppData\Local\Temp\xcAsbks.\driver_tmp_3.o)
+  300000h - 30000Bh		(C:\Users\hshod\AppData\Local\Temp\xcAsbks.\driver_tmp_3.o)
  Unused ranges:
   6h - 7h
   FEh - 7FFh
@@ -21,7 +21,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\hshod\AppData\Local\Temp\xcBsjgo.1\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\hshod\AppData\Local\Temp\xcAsbks.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------

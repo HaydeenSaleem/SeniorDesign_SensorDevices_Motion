@@ -1657,8 +1657,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/pin_manager.c: 220:     ++sensorDebounce;
 [e =+ _sensorDebounce -> -> 1 `i `c ]
 "222
-[; ;mcc_generated_files/pin_manager.c: 222:     if(sensorDebounce == 3)
-[e $ ! == -> _sensorDebounce `i -> 3 `i 1337  ]
+[; ;mcc_generated_files/pin_manager.c: 222:     if(sensorDebounce == 2)
+[e $ ! == -> _sensorDebounce `i -> 2 `i 1337  ]
 "223
 [; ;mcc_generated_files/pin_manager.c: 223:     {
 {

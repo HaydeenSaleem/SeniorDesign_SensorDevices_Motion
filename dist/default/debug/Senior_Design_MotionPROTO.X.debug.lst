@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Fri Mar 01 16:14:22 2024
+                                                                                               Fri Mar 01 20:54:18 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18LF25K40
@@ -2489,8 +2489,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2449                           ;mcc_generated_files/pin_manager.c: 220:     ++sensorDebounce;
   2450   000B70  2A20               	incf	_sensorDebounce^0,f,c
   2451   000B72                     
-  2452                           ;mcc_generated_files/pin_manager.c: 222:     if(sensorDebounce == 3)
-  2453   000B72  0E03               	movlw	3
+  2452                           ;mcc_generated_files/pin_manager.c: 222:     if(sensorDebounce == 2)
+  2453   000B72  0E02               	movlw	2
   2454   000B74  1820               	xorwf	_sensorDebounce^0,w,c
   2455   000B76  A4D8               	btfss	status,2,c
   2456   000B78  EFC0  F005         	goto	i2u43_41
@@ -3588,7 +3588,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Fri Mar 01 16:14:22 2024
+Symbol Table                                                                                   Fri Mar 01 20:54:18 2024
 
                 ?_EUSART_SetRxInterruptHandler 0036                                             l40 0C6E  
                                            l43 0C22                                             l37 0C56  
