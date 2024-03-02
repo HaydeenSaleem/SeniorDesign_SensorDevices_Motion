@@ -160,6 +160,9 @@ void Disarm_System(void);
 
 
 void Transmit_MotionData(void);
+
+
+void Recieve_ArmData(void);
 # 2 "system_core.c" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
@@ -15617,4 +15620,56 @@ void Transmit_MotionData(void)
     mainFlags.System_MotionFlag = 0;
 
     while(!EUSART_is_tx_done());
+}
+
+
+void Recieve_ArmData(void)
+{
+    uint8_t msgBuff[4];
+
+    if(EUSART_is_rx_ready())
+    {
+        for(int i=0;i<sizeof(msgBuff);i++)
+        {
+            msgBuff[i] = EUSART_Read();
+        }
+    }
+
+
+    for(int j=0;j<sizeof(msgBuff);j++)
+    {
+        if(j != (sizeof(msgBuff)-2))
+        {
+            if((msgBuff[j] == 0x52)
+                && (msgBuff[j+1] == 0x53)
+                && (msgBuff[j+2] == 0x4D))
+            {
+                EUSART_Write(0x41);
+                while(!EUSART_is_tx_done());
+
+
+                mainFlags.SystemArmed = 1;
+                mainFlags.SystemDisarmed = 0;
+
+                mainFlags.System_BluetoothReceive = 0;
+                break;
+            }
+
+            if((msgBuff[j] == 0x44)
+                && (msgBuff[j+1] == 0x53)
+                && (msgBuff[j+2] == 0x4D))
+            {
+                EUSART_Write(0x41);
+                while(!EUSART_is_tx_done());
+
+
+                mainFlags.SystemDisarmed = 1;
+                mainFlags.SystemArmed = 0;
+
+                mainFlags.System_BluetoothReceive = 0;
+                break;
+            }
+        }
+    }
+    mainFlags.System_BluetoothReceive = 0;
 }

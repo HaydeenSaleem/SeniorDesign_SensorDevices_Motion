@@ -29,7 +29,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72 main.c
 [; ;main.c: 72:     extern ProjectFlags mainFlags;
 [v _mainFlags `S1327 ~T0 @X0 0 e ]
-"19 ./system_core.h
+"25 ./system_core.h
+[; ;./system_core.h: 25: void Recieve_ArmData(void);
+[v _Recieve_ArmData `(v ~T0 @X0 0 ef ]
+"19
 [; ;./system_core.h: 19: void Disarm_System(void);
 [v _Disarm_System `(v ~T0 @X0 0 ef ]
 "16
@@ -64,6 +67,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24109
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 24109: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
 [v _T0CON0bits `VS1229 ~T0 @X0 0 e@4053 ]
+"3703
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 3703:     struct {
+[s S222 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S222 . SSP1IF BCL1IF . TX1IF RC1IF ]
+"3710
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 3710:     struct {
+[s S223 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S223 . SSPIF BCLIF . TXIF RCIF ]
+"3717
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 3717:     struct {
+[s S224 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S224 . . RXBNIF . TXBNIF ]
+"3702
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 3702: typedef union {
+[u S221 `S222 1 `S223 1 `S224 1 ]
+[n S221 . . . . ]
+"3724
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 3724: extern volatile PIR3bits_t PIR3bits __attribute__((address(0xECD)));
+[v _PIR3bits `VS221 ~T0 @X0 0 e@3789 ]
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
@@ -1316,46 +1338,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 79:     {
 {
 "80
-[; ;main.c: 80:         if(mainFlags.SystemDisarmed) Disarm_System();
-[e $ ! != -> . _mainFlags 1 `i -> 0 `i 1332  ]
-[e ( _Disarm_System ..  ]
+[; ;main.c: 80:         if(mainFlags.System_BluetoothReceive) Recieve_ArmData();
+[e $ ! != -> . _mainFlags 4 `i -> 0 `i 1332  ]
+[e ( _Recieve_ArmData ..  ]
 [e :U 1332 ]
 "81
-[; ;main.c: 81:         if(mainFlags.SystemArmed) Arm_System();
-[e $ ! != -> . _mainFlags 0 `i -> 0 `i 1333  ]
-[e ( _Arm_System ..  ]
+[; ;main.c: 81:         if(mainFlags.SystemDisarmed) Disarm_System();
+[e $ ! != -> . _mainFlags 1 `i -> 0 `i 1333  ]
+[e ( _Disarm_System ..  ]
 [e :U 1333 ]
 "82
-[; ;main.c: 82:         if(mainFlags.System_MotionFlag) Transmit_MotionData();
-[e $ ! != -> . _mainFlags 3 `i -> 0 `i 1334  ]
-[e ( _Transmit_MotionData ..  ]
+[; ;main.c: 82:         if(mainFlags.SystemArmed) Arm_System();
+[e $ ! != -> . _mainFlags 0 `i -> 0 `i 1334  ]
+[e ( _Arm_System ..  ]
 [e :U 1334 ]
-"84
-[; ;main.c: 84:         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0))
-[e $ ! || && == -> . . _IOCCFbits 0 2 `i -> 0 `i == -> . . _T0CON0bits 0 4 `i -> 0 `i != -> . _mainFlags 2 `i -> 0 `i 1335  ]
-"87
-[; ;main.c: 87:         {
+"83
+[; ;main.c: 83:         if(mainFlags.System_MotionFlag) Transmit_MotionData();
+[e $ ! != -> . _mainFlags 3 `i -> 0 `i 1335  ]
+[e ( _Transmit_MotionData ..  ]
+[e :U 1335 ]
+"85
+[; ;main.c: 85:         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0)
+[e $ ! || && && && == -> . . _IOCCFbits 0 2 `i -> 0 `i == -> . . _T0CON0bits 0 4 `i -> 0 `i == -> . . _PIR3bits 0 4 `i -> 0 `i == -> . . _PIR3bits 0 3 `i -> 0 `i != -> . _mainFlags 2 `i -> 0 `i 1336  ]
+"88
+[; ;main.c: 88:         {
 {
-"89
-[; ;main.c: 89:             __asm(" sleep");
-[; <"  sleep ;# ">
 "90
-[; ;main.c: 90:             __nop();
-[e ( ___nop ..  ]
+[; ;main.c: 90:             __asm(" sleep");
+[; <"  sleep ;# ">
 "91
 [; ;main.c: 91:             __nop();
 [e ( ___nop ..  ]
 "92
-[; ;main.c: 92:         }
+[; ;main.c: 92:             __nop();
+[e ( ___nop ..  ]
+"93
+[; ;main.c: 93:         }
 }
-[e :U 1335 ]
-"94
-[; ;main.c: 94:     }
+[e :U 1336 ]
+"95
+[; ;main.c: 95:     }
 }
 [e :U 1329 ]
 [e $U 1330  ]
 [e :U 1331 ]
-"95
-[; ;main.c: 95: }
+"96
+[; ;main.c: 96: }
 [e :UE 1328 ]
 }

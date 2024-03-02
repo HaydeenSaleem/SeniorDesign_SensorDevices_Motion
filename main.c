@@ -77,13 +77,14 @@ void main(void)
 
     while (1)
     {
+        if(mainFlags.System_BluetoothReceive) Recieve_ArmData();
         if(mainFlags.SystemDisarmed) Disarm_System();
         if(mainFlags.SystemArmed) Arm_System();
         if(mainFlags.System_MotionFlag) Transmit_MotionData();
         
-        if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0)) 
-           || (mainFlags.SystemDisarmed_ContinuousSleep)) 
-            //interrupt not going, timer not counting, system disarmed, bluetooth not receiving, bluetooth not sending
+        if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0)  //interrupt not going, timer not counting,
+            && (PIR3bits.RC1IF == 0) && (PIR3bits.TX1IF == 0)) //bluetooth not receiving, and bluetooth not sending
+           || (mainFlags.SystemDisarmed_ContinuousSleep))      // OR system disarmed
         {
             
             SLEEP();

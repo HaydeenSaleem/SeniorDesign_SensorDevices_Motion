@@ -37,3 +37,55 @@ void Transmit_MotionData(void)
     
     while(!EUSART_is_tx_done()); //while there is still data in buffer, wait
 }
+
+
+void Recieve_ArmData(void)
+{
+    uint8_t msgBuff[4]; //problem with way data is recieved
+    
+    if(EUSART_is_rx_ready())
+    {
+        for(int i=0;i<sizeof(msgBuff);i++)
+        {
+            msgBuff[i] = EUSART_Read();
+        }
+    }
+    
+    
+    for(int j=0;j<sizeof(msgBuff);j++)
+    {
+        if(j != (sizeof(msgBuff)-2))
+        {
+            if((msgBuff[j] == 0x52)        //R for rearm
+                && (msgBuff[j+1] == 0x53)  //S for system
+                && (msgBuff[j+2] == 0x4D)) //M for motion
+            {
+                EUSART_Write(0x41); //A for acknowledge
+                while(!EUSART_is_tx_done()); //while there is still data in buffer, wait
+                
+                
+                mainFlags.SystemArmed = HIGH;
+                mainFlags.SystemDisarmed = LOW;
+                
+                mainFlags.System_BluetoothReceive = LOW;
+                break;
+            }
+            
+            if((msgBuff[j] == 0x44)        //D for disarm
+                && (msgBuff[j+1] == 0x53)  //S for system
+                && (msgBuff[j+2] == 0x4D)) //M for motion
+            {
+                EUSART_Write(0x41); //A for acknowledge
+                while(!EUSART_is_tx_done()); //while there is still data in buffer, wait
+                
+                
+                mainFlags.SystemDisarmed = HIGH;
+                mainFlags.SystemArmed = LOW;
+                
+                mainFlags.System_BluetoothReceive = LOW;
+                break;
+            }
+        }
+    }
+    mainFlags.System_BluetoothReceive = LOW;
+}

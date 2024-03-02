@@ -15476,7 +15476,21 @@ void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
 # 505 "mcc_generated_files/eusart.h"
 void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 50 "mcc_generated_files/eusart.c" 2
-# 62 "mcc_generated_files/eusart.c"
+
+# 1 "mcc_generated_files/../project_flags.h" 1
+# 14 "mcc_generated_files/../project_flags.h"
+typedef struct ProjectFlags
+{
+    uint8_t SystemArmed :1;
+    uint8_t SystemDisarmed :1;
+    uint8_t SystemDisarmed_ContinuousSleep :1;
+    uint8_t System_MotionFlag :1;
+    uint8_t System_BluetoothReceive :1;
+} ProjectFlags;
+# 51 "mcc_generated_files/eusart.c" 2
+# 64 "mcc_generated_files/eusart.c"
+extern ProjectFlags mainFlags;
+
 volatile uint8_t eusartTxHead = 0;
 volatile uint8_t eusartTxTail = 0;
 volatile uint8_t eusartTxBuffer[8];
@@ -15663,6 +15677,8 @@ void EUSART_RxDataHandler(void){
         eusartRxHead = 0;
     }
     eusartRxCount++;
+
+    mainFlags.System_BluetoothReceive = 1;
 }
 
 void EUSART_DefaultFramingErrorHandler(void){}

@@ -48,6 +48,7 @@
   Section: Included Files
 */
 #include "eusart.h"
+#include "../project_flags.h"
 
 /**
   Section: Macro Declarations
@@ -59,6 +60,9 @@
 /**
   Section: Global Variables
 */
+
+extern ProjectFlags mainFlags;
+
 volatile uint8_t eusartTxHead = 0;
 volatile uint8_t eusartTxTail = 0;
 volatile uint8_t eusartTxBuffer[EUSART_TX_BUFFER_SIZE];
@@ -245,6 +249,8 @@ void EUSART_RxDataHandler(void){
         eusartRxHead = 0;
     }
     eusartRxCount++;
+    
+    mainFlags.System_BluetoothReceive = 1;
 }
 
 void EUSART_DefaultFramingErrorHandler(void){}
