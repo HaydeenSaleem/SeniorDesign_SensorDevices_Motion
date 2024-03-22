@@ -15789,7 +15789,7 @@ void main(void)
         if(mainFlags.System_MotionFlag) Transmit_MotionData();
 
         if(((IOCCFbits.IOCCF2 == 0) && (T0CON0bits.T0EN == 0)
-            && (PIR3bits.RC1IF == 0) && (PIR3bits.TX1IF == 0))
+            && (PIR3bits.RC1IF == 0) && (PIR3bits.TX1IF == 1))
            || (mainFlags.SystemDisarmed_ContinuousSleep))
         {
 

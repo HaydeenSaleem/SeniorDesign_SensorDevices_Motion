@@ -106,9 +106,9 @@
 [v _Arm_System Arm_System `(v  1 e 1 0 ]
 "19
 [v _Disarm_System Disarm_System `(v  1 e 1 0 ]
-"31
+"32
 [v _Transmit_MotionData Transmit_MotionData `(v  1 e 1 0 ]
-"42
+"43
 [v _Recieve_ArmData Recieve_ArmData `(v  1 e 1 0 ]
 [s S247 ProjectFlags 1 `uc 1 SystemArmed 1 0 :1:0 
 `uc 1 SystemDisarmed 1 0 :1:1 
@@ -334,7 +334,7 @@
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @3996 ]
 "16505
 [v _RC1STA RC1STA `VEuc  1 e 1 @3997 ]
-[s S1003 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1040 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -344,22 +344,22 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "16546
-[s S1012 . 1 `uc 1 . 1 0 :6:0 
+[s S1049 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S1015 . 1 `uc 1 . 1 0 :6:0 
+[s S1052 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S1018 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S1055 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[s S1020 . 1 `uc 1 . 1 0 :5:0 
+[s S1057 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S1023 . 1 `S1003 1 . 1 0 `S1012 1 . 1 0 `S1015 1 . 1 0 `S1018 1 . 1 0 `S1020 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES1023  1 e 1 @3997 ]
+[u S1060 . 1 `S1040 1 . 1 0 `S1049 1 . 1 0 `S1052 1 . 1 0 `S1055 1 . 1 0 `S1057 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES1060  1 e 1 @3997 ]
 "16790
 [v _TX1STA TX1STA `VEuc  1 e 1 @3998 ]
-[s S915 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S952 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -369,36 +369,36 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "16854
-[s S924 . 1 `uc 1 . 1 0 :6:0 
+[s S961 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S927 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S964 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[s S929 . 1 `uc 1 . 1 0 :2:0 
+[s S966 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 BRGH1 1 0 :1:2 
 ]
-[s S932 . 1 `uc 1 . 1 0 :7:0 
+[s S969 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S935 . 1 `uc 1 . 1 0 :3:0 
+[s S972 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SENDB1 1 0 :1:3 
 ]
-[s S938 . 1 `uc 1 . 1 0 :4:0 
+[s S975 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SYNC1 1 0 :1:4 
 ]
-[s S941 . 1 `uc 1 . 1 0 :1:0 
+[s S978 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 ]
-[s S944 . 1 `uc 1 . 1 0 :6:0 
+[s S981 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX91 1 0 :1:6 
 ]
-[s S947 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S984 . 1 `uc 1 TX9D1 1 0 :1:0 
 ]
-[s S949 . 1 `uc 1 . 1 0 :5:0 
+[s S986 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 TXEN1 1 0 :1:5 
 ]
-[u S952 . 1 `S915 1 . 1 0 `S924 1 . 1 0 `S927 1 . 1 0 `S929 1 . 1 0 `S932 1 . 1 0 `S935 1 . 1 0 `S938 1 . 1 0 `S941 1 . 1 0 `S944 1 . 1 0 `S947 1 . 1 0 `S949 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES952  1 e 1 @3998 ]
+[u S989 . 1 `S952 1 . 1 0 `S961 1 . 1 0 `S964 1 . 1 0 `S966 1 . 1 0 `S969 1 . 1 0 `S972 1 . 1 0 `S975 1 . 1 0 `S978 1 . 1 0 `S981 1 . 1 0 `S984 1 . 1 0 `S986 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES989  1 e 1 @3998 ]
 "17234
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @3999 ]
 "23697
@@ -456,18 +456,18 @@
 [v _eusartRxTail eusartRxTail `VEuc  1 e 1 0 ]
 "73
 [v _eusartRxBuffer eusartRxBuffer `VE[8]uc  1 e 8 0 ]
-[s S819 . 1 `uc 1 perr 1 0 :1:0 
+[s S856 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
 `uc 1 reserved 1 0 :5:3 
 ]
 "74
-[u S824 . 1 `S819 1 . 1 0 `uc 1 status 1 0 ]
-[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[8]S824  1 e 8 0 ]
+[u S861 . 1 `S856 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[8]S861  1 e 8 0 ]
 "75
 [v _eusartRxCount eusartRxCount `VEuc  1 e 1 0 ]
 "76
-[v _eusartRxLastError eusartRxLastError `VES824  1 e 1 0 ]
+[v _eusartRxLastError eusartRxLastError `VES861  1 e 1 0 ]
 "81
 [v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `*.37(v  1 e 2 0 ]
 "82
@@ -491,10 +491,10 @@
 {
 "96
 } 0
-"31 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
+"32 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
 [v _Transmit_MotionData Transmit_MotionData `(v  1 e 1 0 ]
 {
-"39
+"40
 } 0
 "50 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -579,16 +579,16 @@
 [v EUSART_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 4 ]
 "280
 } 0
-"42 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
+"43 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
 [v _Recieve_ArmData Recieve_ArmData `(v  1 e 1 0 ]
 {
-"48
+"51
 [v Recieve_ArmData@i i `i  1 a 2 11 ]
-"55
+"58
 [v Recieve_ArmData@j j `i  1 a 2 13 ]
-"44
+"45
 [v Recieve_ArmData@msgBuff msgBuff `[4]uc  1 a 4 7 ]
-"91
+"94
 } 0
 "146 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\mcc_generated_files/eusart.c
 [v _EUSART_is_tx_done EUSART_is_tx_done `(a  1 e 1 0 ]
@@ -618,7 +618,7 @@
 "19 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\system_core.c
 [v _Disarm_System Disarm_System `(v  1 e 1 0 ]
 {
-"28
+"29
 } 0
 "94 C:\Users\hshod\OneDrive\Desktop\Coding Projects\Senior Design\Motion Detector\Senior_Design_MotionPROTO.X\mcc_generated_files/tmr0.c
 [v _TMR0_StopTimer TMR0_StopTimer `(v  1 e 1 0 ]

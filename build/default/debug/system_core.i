@@ -15606,6 +15606,7 @@ void Disarm_System(void)
 
     PIE0bits.TMR0IE = 0;
     TMR0_StopTimer();
+    do { LATCbits.LATC3 = 0; } while(0);
 
     mainFlags.SystemDisarmed_ContinuousSleep = 1;
     mainFlags.SystemDisarmed = 0;
@@ -15661,6 +15662,8 @@ void Recieve_ArmData(void)
             {
                 EUSART_Write(0x41);
                 while(!EUSART_is_tx_done());
+
+
 
 
                 mainFlags.SystemDisarmed = 1;

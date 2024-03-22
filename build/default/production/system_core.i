@@ -15606,6 +15606,7 @@ void Disarm_System(void)
 
     PIE0bits.TMR0IE = 0;
     TMR0_StopTimer();
+    do { LATCbits.LATC3 = 0; } while(0);
 
     mainFlags.SystemDisarmed_ContinuousSleep = 1;
     mainFlags.SystemDisarmed = 0;
@@ -15626,6 +15627,8 @@ void Transmit_MotionData(void)
 void Recieve_ArmData(void)
 {
     uint8_t msgBuff[4];
+
+    while(T0CON0bits.T0EN == 1);
 
     if(EUSART_is_rx_ready())
     {

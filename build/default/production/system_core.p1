@@ -39,13 +39,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 "167 ./mcc_generated_files/tmr0.h
 [; ;./mcc_generated_files/tmr0.h: 167: void TMR0_StopTimer(void);
 [v _TMR0_StopTimer `(v ~T0 @X0 0 ef ]
+"14481 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 14481:     struct {
+[s S700 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S700 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"14491
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 14491:     struct {
+[s S701 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S701 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"14480
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 14480: typedef union {
+[u S699 `S700 1 `S701 1 ]
+[n S699 . . . ]
+"14502
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 14502: extern volatile LATCbits_t LATCbits __attribute__((address(0xF85)));
+[v _LATCbits `VS699 ~T0 @X0 0 e@3973 ]
 "348 ./mcc_generated_files/eusart.h
 [; ;./mcc_generated_files/eusart.h: 348: void EUSART_Write(uint8_t txData);
 [v _EUSART_Write `(v ~T0 @X0 0 ef1`uc ]
 "260
 [; ;./mcc_generated_files/eusart.h: 260: _Bool EUSART_is_tx_done(void);
 [v _EUSART_is_tx_done `(a ~T0 @X0 0 ef ]
-"213
+"24095 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 24095:     struct {
+[s S1231 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1231 . T0OUTPS T016BIT T0OUT . T0EN ]
+"24102
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 24102:     struct {
+[s S1232 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1232 . T0OUTPS0 T0OUTPS1 T0OUTPS2 T0OUTPS3 ]
+"24094
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 24094: typedef union {
+[u S1230 `S1231 1 `S1232 1 ]
+[n S1230 . . . ]
+"24109
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18lf25k40.h: 24109: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
+[v _T0CON0bits `VS1230 ~T0 @X0 0 e@4053 ]
+"213 ./mcc_generated_files/eusart.h
 [; ;./mcc_generated_files/eusart.h: 213: _Bool EUSART_is_rx_ready(void);
 [v _EUSART_is_rx_ready `(a ~T0 @X0 0 ef ]
 "328
@@ -1317,182 +1347,196 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24
 [; ;system_core.c: 24:     TMR0_StopTimer();
 [e ( _TMR0_StopTimer ..  ]
-"26
-[; ;system_core.c: 26:     mainFlags.SystemDisarmed_ContinuousSleep = 1;
-[e = . _mainFlags 2 -> -> 1 `i `uc ]
+"25
+[; ;system_core.c: 25:     do { LATCbits.LATC3 = 0; } while(0);
+[e :U 1333 ]
+{
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+}
+[e :U 1332 ]
 "27
-[; ;system_core.c: 27:     mainFlags.SystemDisarmed = 0;
-[e = . _mainFlags 1 -> -> 0 `i `uc ]
+[; ;system_core.c: 27:     mainFlags.SystemDisarmed_ContinuousSleep = 1;
+[e = . _mainFlags 2 -> -> 1 `i `uc ]
 "28
-[; ;system_core.c: 28: }
+[; ;system_core.c: 28:     mainFlags.SystemDisarmed = 0;
+[e = . _mainFlags 1 -> -> 0 `i `uc ]
+"29
+[; ;system_core.c: 29: }
 [e :UE 1330 ]
 }
-"31
-[; ;system_core.c: 31: void Transmit_MotionData(void)
-[v _Transmit_MotionData `(v ~T0 @X0 1 ef ]
 "32
-[; ;system_core.c: 32: {
+[; ;system_core.c: 32: void Transmit_MotionData(void)
+[v _Transmit_MotionData `(v ~T0 @X0 1 ef ]
+"33
+[; ;system_core.c: 33: {
 {
 [e :U _Transmit_MotionData ]
 [f ]
-"33
-[; ;system_core.c: 33:     EUSART_Write(0x4D);
-[e ( _EUSART_Write (1 -> -> 77 `i `uc ]
 "34
-[; ;system_core.c: 34:     EUSART_Write(0x44);
+[; ;system_core.c: 34:     EUSART_Write(0x4D);
+[e ( _EUSART_Write (1 -> -> 77 `i `uc ]
+"35
+[; ;system_core.c: 35:     EUSART_Write(0x44);
 [e ( _EUSART_Write (1 -> -> 68 `i `uc ]
-"36
-[; ;system_core.c: 36:     mainFlags.System_MotionFlag = 0;
+"37
+[; ;system_core.c: 37:     mainFlags.System_MotionFlag = 0;
 [e = . _mainFlags 3 -> -> 0 `i `uc ]
-"38
-[; ;system_core.c: 38:     while(!EUSART_is_tx_done());
-[e $U 1332  ]
-[e :U 1333 ]
-[e :U 1332 ]
-[e $ ! != -> ( _EUSART_is_tx_done ..  `i -> 0 `i 1333  ]
-[e :U 1334 ]
 "39
-[; ;system_core.c: 39: }
-[e :UE 1331 ]
+[; ;system_core.c: 39:     while(!EUSART_is_tx_done());
+[e $U 1335  ]
+[e :U 1336 ]
+[e :U 1335 ]
+[e $ ! != -> ( _EUSART_is_tx_done ..  `i -> 0 `i 1336  ]
+[e :U 1337 ]
+"40
+[; ;system_core.c: 40: }
+[e :UE 1334 ]
 }
-"42
-[; ;system_core.c: 42: void Recieve_ArmData(void)
-[v _Recieve_ArmData `(v ~T0 @X0 1 ef ]
 "43
-[; ;system_core.c: 43: {
+[; ;system_core.c: 43: void Recieve_ArmData(void)
+[v _Recieve_ArmData `(v ~T0 @X0 1 ef ]
+"44
+[; ;system_core.c: 44: {
 {
 [e :U _Recieve_ArmData ]
 [f ]
-"44
-[; ;system_core.c: 44:     uint8_t msgBuff[4];
+"45
+[; ;system_core.c: 45:     uint8_t msgBuff[4];
 [v _msgBuff `uc ~T0 @X0 -> 4 `i a ]
-"46
-[; ;system_core.c: 46:     if(EUSART_is_rx_ready())
-[e $ ! != -> ( _EUSART_is_rx_ready ..  `i -> 0 `i 1336  ]
 "47
-[; ;system_core.c: 47:     {
+[; ;system_core.c: 47:     while(T0CON0bits.T0EN == 1);
+[e $U 1339  ]
+[e :U 1340 ]
+[e :U 1339 ]
+[e $ == -> . . _T0CON0bits 0 4 `i -> 1 `i 1340  ]
+[e :U 1341 ]
+"49
+[; ;system_core.c: 49:     if(EUSART_is_rx_ready())
+[e $ ! != -> ( _EUSART_is_rx_ready ..  `i -> 0 `i 1342  ]
+"50
+[; ;system_core.c: 50:     {
 {
-"48
-[; ;system_core.c: 48:         for(int i=0;i<sizeof(msgBuff);i++)
+"51
+[; ;system_core.c: 51:         for(int i=0;i<sizeof(msgBuff);i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < -> _i `ui -> # _msgBuff `ui 1337  ]
-[e $U 1338  ]
-[e :U 1337 ]
-"49
-[; ;system_core.c: 49:         {
+[e $ < -> _i `ui -> # _msgBuff `ui 1343  ]
+[e $U 1344  ]
+[e :U 1343 ]
+"52
+[; ;system_core.c: 52:         {
 {
-"50
-[; ;system_core.c: 50:             msgBuff[i] = EUSART_Read();
+"53
+[; ;system_core.c: 53:             msgBuff[i] = EUSART_Read();
 [e = *U + &U _msgBuff * -> -> _i `ui `ux -> -> # *U &U _msgBuff `ui `ux ( _EUSART_Read ..  ]
-"51
-[; ;system_core.c: 51:         }
+"54
+[; ;system_core.c: 54:         }
 }
 [e ++ _i -> 1 `i ]
-[e $ < -> _i `ui -> # _msgBuff `ui 1337  ]
-[e :U 1338 ]
+[e $ < -> _i `ui -> # _msgBuff `ui 1343  ]
+[e :U 1344 ]
 }
-"52
-[; ;system_core.c: 52:     }
-}
-[e :U 1336 ]
 "55
-[; ;system_core.c: 55:     for(int j=0;j<sizeof(msgBuff);j++)
+[; ;system_core.c: 55:     }
+}
+[e :U 1342 ]
+"58
+[; ;system_core.c: 58:     for(int j=0;j<sizeof(msgBuff);j++)
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _msgBuff `ui 1340  ]
-[e $U 1341  ]
-[e :U 1340 ]
-"56
-[; ;system_core.c: 56:     {
-{
-"57
-[; ;system_core.c: 57:         if(j != (sizeof(msgBuff)-2))
-[e $ ! != -> _j `ui - -> # _msgBuff `ui -> -> 2 `i `ui 1343  ]
-"58
-[; ;system_core.c: 58:         {
-{
-"59
-[; ;system_core.c: 59:             if((msgBuff[j] == 0x52)
-[e $ ! && && == -> *U + &U _msgBuff * -> -> _j `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 82 `i == -> *U + &U _msgBuff * -> -> + _j -> 1 `i `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 83 `i == -> *U + &U _msgBuff * -> -> + _j -> 2 `i `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 77 `i 1344  ]
-"62
-[; ;system_core.c: 62:             {
-{
-"63
-[; ;system_core.c: 63:                 EUSART_Write(0x41);
-[e ( _EUSART_Write (1 -> -> 65 `i `uc ]
-"64
-[; ;system_core.c: 64:                 while(!EUSART_is_tx_done());
-[e $U 1345  ]
+[e $ < -> _j `ui -> # _msgBuff `ui 1346  ]
+[e $U 1347  ]
 [e :U 1346 ]
-[e :U 1345 ]
-[e $ ! != -> ( _EUSART_is_tx_done ..  `i -> 0 `i 1346  ]
-[e :U 1347 ]
-"67
-[; ;system_core.c: 67:                 mainFlags.SystemArmed = 1;
-[e = . _mainFlags 0 -> -> 1 `i `uc ]
-"68
-[; ;system_core.c: 68:                 mainFlags.SystemDisarmed = 0;
-[e = . _mainFlags 1 -> -> 0 `i `uc ]
-"70
-[; ;system_core.c: 70:                 mainFlags.System_BluetoothReceive = 0;
-[e = . _mainFlags 4 -> -> 0 `i `uc ]
-"71
-[; ;system_core.c: 71:                 break;
-[e $U 1341  ]
-"72
-[; ;system_core.c: 72:             }
-}
-[e :U 1344 ]
-"74
-[; ;system_core.c: 74:             if((msgBuff[j] == 0x44)
-[e $ ! && && == -> *U + &U _msgBuff * -> -> _j `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 68 `i == -> *U + &U _msgBuff * -> -> + _j -> 1 `i `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 83 `i == -> *U + &U _msgBuff * -> -> + _j -> 2 `i `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 77 `i 1348  ]
-"77
-[; ;system_core.c: 77:             {
+"59
+[; ;system_core.c: 59:     {
 {
-"78
-[; ;system_core.c: 78:                 EUSART_Write(0x41);
+"60
+[; ;system_core.c: 60:         if(j != (sizeof(msgBuff)-2))
+[e $ ! != -> _j `ui - -> # _msgBuff `ui -> -> 2 `i `ui 1349  ]
+"61
+[; ;system_core.c: 61:         {
+{
+"62
+[; ;system_core.c: 62:             if((msgBuff[j] == 0x52)
+[e $ ! && && == -> *U + &U _msgBuff * -> -> _j `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 82 `i == -> *U + &U _msgBuff * -> -> + _j -> 1 `i `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 83 `i == -> *U + &U _msgBuff * -> -> + _j -> 2 `i `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 77 `i 1350  ]
+"65
+[; ;system_core.c: 65:             {
+{
+"66
+[; ;system_core.c: 66:                 EUSART_Write(0x41);
 [e ( _EUSART_Write (1 -> -> 65 `i `uc ]
-"79
-[; ;system_core.c: 79:                 while(!EUSART_is_tx_done());
-[e $U 1349  ]
-[e :U 1350 ]
-[e :U 1349 ]
-[e $ ! != -> ( _EUSART_is_tx_done ..  `i -> 0 `i 1350  ]
+"67
+[; ;system_core.c: 67:                 while(!EUSART_is_tx_done());
+[e $U 1351  ]
+[e :U 1352 ]
 [e :U 1351 ]
-"82
-[; ;system_core.c: 82:                 mainFlags.SystemDisarmed = 1;
-[e = . _mainFlags 1 -> -> 1 `i `uc ]
-"83
-[; ;system_core.c: 83:                 mainFlags.SystemArmed = 0;
-[e = . _mainFlags 0 -> -> 0 `i `uc ]
-"85
-[; ;system_core.c: 85:                 mainFlags.System_BluetoothReceive = 0;
+[e $ ! != -> ( _EUSART_is_tx_done ..  `i -> 0 `i 1352  ]
+[e :U 1353 ]
+"70
+[; ;system_core.c: 70:                 mainFlags.SystemArmed = 1;
+[e = . _mainFlags 0 -> -> 1 `i `uc ]
+"71
+[; ;system_core.c: 71:                 mainFlags.SystemDisarmed = 0;
+[e = . _mainFlags 1 -> -> 0 `i `uc ]
+"73
+[; ;system_core.c: 73:                 mainFlags.System_BluetoothReceive = 0;
 [e = . _mainFlags 4 -> -> 0 `i `uc ]
+"74
+[; ;system_core.c: 74:                 break;
+[e $U 1347  ]
+"75
+[; ;system_core.c: 75:             }
+}
+[e :U 1350 ]
+"77
+[; ;system_core.c: 77:             if((msgBuff[j] == 0x44)
+[e $ ! && && == -> *U + &U _msgBuff * -> -> _j `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 68 `i == -> *U + &U _msgBuff * -> -> + _j -> 1 `i `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 83 `i == -> *U + &U _msgBuff * -> -> + _j -> 2 `i `ui `ux -> -> # *U &U _msgBuff `ui `ux `i -> 77 `i 1354  ]
+"80
+[; ;system_core.c: 80:             {
+{
+"81
+[; ;system_core.c: 81:                 EUSART_Write(0x41);
+[e ( _EUSART_Write (1 -> -> 65 `i `uc ]
+"82
+[; ;system_core.c: 82:                 while(!EUSART_is_tx_done());
+[e $U 1355  ]
+[e :U 1356 ]
+[e :U 1355 ]
+[e $ ! != -> ( _EUSART_is_tx_done ..  `i -> 0 `i 1356  ]
+[e :U 1357 ]
+"85
+[; ;system_core.c: 85:                 mainFlags.SystemDisarmed = 1;
+[e = . _mainFlags 1 -> -> 1 `i `uc ]
 "86
-[; ;system_core.c: 86:                 break;
-[e $U 1341  ]
-"87
-[; ;system_core.c: 87:             }
-}
-[e :U 1348 ]
+[; ;system_core.c: 86:                 mainFlags.SystemArmed = 0;
+[e = . _mainFlags 0 -> -> 0 `i `uc ]
 "88
-[; ;system_core.c: 88:         }
-}
-[e :U 1343 ]
+[; ;system_core.c: 88:                 mainFlags.System_BluetoothReceive = 0;
+[e = . _mainFlags 4 -> -> 0 `i `uc ]
 "89
-[; ;system_core.c: 89:     }
+[; ;system_core.c: 89:                 break;
+[e $U 1347  ]
+"90
+[; ;system_core.c: 90:             }
+}
+[e :U 1354 ]
+"91
+[; ;system_core.c: 91:         }
+}
+[e :U 1349 ]
+"92
+[; ;system_core.c: 92:     }
 }
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _msgBuff `ui 1340  ]
-[e :U 1341 ]
+[e $ < -> _j `ui -> # _msgBuff `ui 1346  ]
+[e :U 1347 ]
 }
-"90
-[; ;system_core.c: 90:     mainFlags.System_BluetoothReceive = 0;
+"93
+[; ;system_core.c: 93:     mainFlags.System_BluetoothReceive = 0;
 [e = . _mainFlags 4 -> -> 0 `i `uc ]
-"91
-[; ;system_core.c: 91: }
-[e :UE 1335 ]
+"94
+[; ;system_core.c: 94: }
+[e :UE 1338 ]
 }

@@ -22,6 +22,7 @@ void Disarm_System(void)
     
     PIE0bits.TMR0IE = LOW; //disable timer interrupt
     TMR0_StopTimer(); //stop timer in case it is running
+    BlinkPin_SetLow();
 
     mainFlags.SystemDisarmed_ContinuousSleep = HIGH;
     mainFlags.SystemDisarmed = LOW;
@@ -41,7 +42,9 @@ void Transmit_MotionData(void)
 
 void Recieve_ArmData(void)
 {
-    uint8_t msgBuff[4]; //problem with way data is recieved
+    uint8_t msgBuff[4]; //problem with way data is received
+    
+    while(T0CON0bits.T0EN == 1); //prevents lockup when disarmed while timer running
     
     if(EUSART_is_rx_ready())
     {
